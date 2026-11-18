@@ -1,8 +1,4 @@
 
-CREATE DATABASE IF NOT EXISTS library_database
-    CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE library_database;
-
 CREATE TABLE IF NOT EXISTS author (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(100) NOT NULL,

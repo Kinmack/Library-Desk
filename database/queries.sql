@@ -1,5 +1,3 @@
-USE library_database;
-
 -- Catalog search: set this value to a title, author, or category fragment.
 -- In the PHP application, bind the search term with a prepared statement.
 SET @catalog_search = '';

@@ -1,0 +1,9 @@
+# Local environment and credential files
+.env
+.env.*
+!.env.example
+
+# PHP/XAMPP and editor artifacts
+*.log
+.vscode/
+vendor/

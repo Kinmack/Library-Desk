@@ -3,8 +3,26 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+function app_config_value($name, $default)
+{
+    $value = getenv($name);
+    if ($value !== false) {
+        return $value;
+    }
+
+    if (isset($_SERVER[$name])) {
+        return (string) $_SERVER[$name];
+    }
+
+    if (isset($_ENV[$name])) {
+        return (string) $_ENV[$name];
+    }
+
+    return $default;
+}
+
 if (!defined('APP_URL')) {
-    define('APP_URL', '/library-system');
+    define('APP_URL', rtrim(app_config_value('APP_URL', '/library-system'), '/'));
 }
 
 function e($value)

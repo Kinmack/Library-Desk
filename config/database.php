@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/../includes/functions.php';
 
-$host = 'localhost';
-$dbname = 'library_database';
-$username = 'root';
-$password = '';
+$host = app_config_value('DB_HOST', 'localhost');
+$dbname = app_config_value('DB_NAME', 'library_database');
+$username = app_config_value('DB_USER', 'root');
+$password = app_config_value('DB_PASSWORD', '');
 
 try {
     $pdo = new PDO(
