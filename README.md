@@ -1,6 +1,16 @@
 # Library Desk
 
-Library Desk is a PHP/MySQL library management application. It runs the real PHP application; it does not use a browser-only demo.
+Library Desk is a PHP/MySQL library management application with a static demo that can run on GitHub Pages.
+
+## Try the GitHub Pages demo
+
+The demo works in a browser without PHP or MySQL. It includes sample books, members, loans, authors, and categories; changes are saved only in the current browser and can be reset at any time.
+
+After GitHub Pages is enabled for this repository, open [the Library Desk demo](https://kinmack.github.io/Library-Desk/). The deployment workflow publishes only the static demo files, not the PHP application.
+
+To enable deployment, select **Settings → Pages → Build and deployment → GitHub Actions** once. Future pushes to `main` deploy the demo automatically.
+
+The demo is separate from the PHP application: GitHub Pages cannot execute PHP or connect to MySQL. Use a PHP-capable host to run the full application.
 
 ## Run locally with XAMPP
 

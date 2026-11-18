@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages demo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+      - assets/app.css
+      - assets/demo.css
+      - assets/demo.js
+      - assets/images/Library_Design.jpg
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Prepare static demo
+        run: |
+          mkdir -p _site/assets/images
+          cp index.html _site/index.html
+          cp assets/app.css assets/demo.css assets/demo.js _site/assets/
+          cp assets/images/Library_Design.jpg _site/assets/images/
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
