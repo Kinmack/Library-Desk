@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A browser-based Library Desk management demo.">
+	<title>Library Desk | Demo</title>
+	<link rel="stylesheet" href="assets/app.css">
+	<link rel="stylesheet" href="assets/demo.css">
+	<script src="assets/demo.js" defer></script>
+</head>
+<body class="demo-app">
+	<a class="skip-link" href="#app-content">Skip to content</a>
+	<header class="topbar">
+		<a class="brand" href="#dashboard">
+			<span class="brand-mark" aria-hidden="true">L</span>
+			<span>Library Desk</span>
+		</a>
+		<nav class="main-nav" aria-label="Main navigation">
+			<a href="#dashboard" data-nav="dashboard">Overview</a>
+			<a href="#books" data-nav="books">Books</a>
+			<a href="#members" data-nav="members">Members</a>
+			<a href="#loans" data-nav="loans">Loans</a>
+			<a href="#authors" data-nav="authors">Authors</a>
+			<a href="#categories" data-nav="categories">Categories</a>
+		</nav>
+		<div class="account">
+			<span>Demo mode</span>
+			<button class="reset-button" type="button" data-reset>Reset sample data</button>
+		</div>
+	</header>
+
+	<main id="app-content" class="page-shell" tabindex="-1"></main>
+
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<span>&copy; <span data-year></span> Library Desk</span>
+			<span>Demo only &middot; Changes are saved in this browser</span>
+		</div>
+	</footer>
+
+	<dialog class="record-dialog" id="record-dialog" aria-labelledby="dialog-title">
+		<form id="record-form">
+			<div class="dialog-heading">
+				<div>
+					<p class="eyebrow">LIBRARY DESK</p>
+					<h2 id="dialog-title">Add record</h2>
+				</div>
+				<button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">&times;</button>
+			</div>
+			<div class="form-grid" id="dialog-fields"></div>
+			<p class="form-error" id="form-error" role="alert" hidden></p>
+			<div class="form-actions">
+				<button class="button button-secondary" type="button" data-close-dialog>Cancel</button>
+				<button class="button button-primary" type="submit">Save record</button>
+			</div>
+		</form>
+	</dialog>
+
+	<div class="sr-only" id="announcer" aria-live="polite"></div>
+</body>
+</html>
